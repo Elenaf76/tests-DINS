@@ -1,0 +1,249 @@
+{
+	"info": {
+		"_postman_id": "f8cb6032-d190-49cf-918f-c105ca2e3e83",
+		"name": "DINS",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "GET postId",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"//#Test 1\r",
+							"var data = pm.response.json();\r",
+							"pm.test(\"GET postId\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"     console.log(\"This is id of the first post:\", data[0].id)\r",
+							"    pm.expect(data[0].id).to.eql(1);\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://jsonplaceholder.typicode.com/posts?userId=1&title=sunt aut facere repellat provident occaecati excepturi optio reprehenderit",
+					"protocol": "https",
+					"host": [
+						"jsonplaceholder",
+						"typicode",
+						"com"
+					],
+					"path": [
+						"posts"
+					],
+					"query": [
+						{
+							"key": "userId",
+							"value": "1"
+						},
+						{
+							"key": "title",
+							"value": "sunt aut facere repellat provident occaecati excepturi optio reprehenderit"
+						},
+						{
+							"key": "",
+							"value": "",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "The post has  property 'body'",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"//#Test 2\r",
+							"var data = pm.response.json();\r",
+							"pm.test(\"The post has property 'body'\", () => {\r",
+							"    pm.response.to.have.status(200);\r",
+							"    pm.expect(data[0]).to.have.property('body');\r",
+							"    console.log('This is a body of post:', data[0].body);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://jsonplaceholder.typicode.com/posts?userId=1&title=sunt aut facere repellat provident occaecati excepturi optio reprehenderit",
+					"protocol": "https",
+					"host": [
+						"jsonplaceholder",
+						"typicode",
+						"com"
+					],
+					"path": [
+						"posts"
+					],
+					"query": [
+						{
+							"key": "userId",
+							"value": "1"
+						},
+						{
+							"key": "title",
+							"value": "sunt aut facere repellat provident occaecati excepturi optio reprehenderit"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Type of body",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"//#Test 3\r",
+							"var data = pm.response.json();\r",
+							"pm.test(\"Type of body should be a 'string'\", () => {\r",
+							"    pm.response.to.have.status(200);\r",
+							"    pm.expect(data[0].body).to.be.a('string');\r",
+							"    console.log('This is a string:', data[0].body);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://jsonplaceholder.typicode.com/posts?userId=1&title=sunt aut facere repellat provident occaecati excepturi optio reprehenderit",
+					"protocol": "https",
+					"host": [
+						"jsonplaceholder",
+						"typicode",
+						"com"
+					],
+					"path": [
+						"posts"
+					],
+					"query": [
+						{
+							"key": "userId",
+							"value": "1"
+						},
+						{
+							"key": "title",
+							"value": "sunt aut facere repellat provident occaecati excepturi optio reprehenderit"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Part of string found",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							" //#Test 4\r",
+							" var data = pm.response.json();\r",
+							"pm.test('Part of string found', function () {\r",
+							"    pm.expect(pm.response.text()).to.include('suscipit recusandae consequuntur');\r",
+							"    console.log(\"'suscipit recusandae consequuntur' is a part of string:\", data[0].body)\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://jsonplaceholder.typicode.com/posts?userId=1&title=sunt aut facere repellat provident occaecati excepturi optio reprehenderit",
+					"protocol": "https",
+					"host": [
+						"jsonplaceholder",
+						"typicode",
+						"com"
+					],
+					"path": [
+						"posts"
+					],
+					"query": [
+						{
+							"key": "userId",
+							"value": "1"
+						},
+						{
+							"key": "title",
+							"value": "sunt aut facere repellat provident occaecati excepturi optio reprehenderit"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "UserId not be zerro",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"//#Test 5\r",
+							"var data = pm.response.json();\r",
+							"pm.test(\"UserId not be zerro\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"     console.log(\"This is userId\", data[0].userId)\r",
+							"    pm.expect(data[0].userId).be.above(0);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://jsonplaceholder.typicode.com/posts?userId=1&title=sunt aut facere repellat provident occaecati excepturi optio reprehenderit",
+					"protocol": "https",
+					"host": [
+						"jsonplaceholder",
+						"typicode",
+						"com"
+					],
+					"path": [
+						"posts"
+					],
+					"query": [
+						{
+							"key": "userId",
+							"value": "1"
+						},
+						{
+							"key": "title",
+							"value": "sunt aut facere repellat provident occaecati excepturi optio reprehenderit"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
